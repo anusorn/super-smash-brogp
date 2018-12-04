@@ -15,6 +15,7 @@
 # the License.
 
 import os
+import sys
 import time
 import yaml
 import argparse
@@ -90,7 +91,8 @@ def remove_prefixes(peer, announced_prefixes, remove_prefixes):
 
     for prefix in prefixes_to_withdraw:
         print 'neighbor {} withdraw route {} next-hop self'.format(peer, prefix)
-
+    sys.stdout.flush()
+        
     return announced_prefixes - prefixes_to_withdraw
 
 
